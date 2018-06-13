@@ -1,0 +1,27 @@
+@import "bootstrap.min";
+
+.skynet {
+	.skynet-cluster {
+		display: flex;
+		flex-wrap: wrap;
+		max-width: 200px;
+
+		&.skynet-cluster-3 {
+			width: 75px;
+		}
+	}
+
+	.skynet-impulse {
+		width: 19px;
+		height: 19px;
+
+		margin: 3px;
+
+		background-color: darkgrey;
+		border-radius: 50%;
+
+		&.active {
+			background-color: deepskyblue;
+		}
+	}
+}

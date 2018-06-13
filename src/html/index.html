@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="skynetApp">
+<head>
+	<!-- meta-block -->
+	<title>Skynet Neuronal Network</title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta name="description" content="Autonomous Neuronal Network">
+	<meta name="author" content="PadSoft">
+
+	<!-- /meta-block -->
+
+	<!-- immediate-js-execution-block -->
+	<!-- /immediate-js-execution-block -->
+
+	<!-- begin-of-cssom-blocking -->
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//ajax.googleapis.com">
+
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Wendy+One|Roboto:300,700|Ubuntu:500" rel="stylesheet">
+
+	<!-- /begin-of-cssom-blocking -->
+
+	<!-- preload-scanner-discoverable -->
+	<!-- /preload-scanner-discoverable -->
+</head>
+<body>
+
+<div class="container">
+	<h1>Skynet Neuronal Network</h1>
+	<p class="lead">... is what I'd like to create.</p>
+
+	<div class="skynet"
+	     ng-controller="SkynetCtrl">
+
+		<div class="row">
+			<div class="col-lg-4 col-lg-offset-4">
+				<h3>
+					Input Cluster
+				</h3>
+
+				<div class="skynet-cluster skynet-cluster-3">
+					<div class="skynet-impulse"
+					     ng-repeat="axon in skynet.axons"
+					     ng-class="{ active: axon.impulse }"></div>
+				</div>
+			</div>
+
+			<div class="col-lg-4">
+				<h3>
+					Neuron Cluster
+				</h3>
+
+				<div class="skynet-cluster">
+					<div class="skynet-impulse"
+					     ng-class="{ active: skynet.neuron.answer() === 1 }"></div>
+				</div>
+
+				<!--<p>&nbsp;</p>-->
+
+				<!--<button class="btn btn-primary btn-sm"-->
+				        <!--ng-click="train(1)">-->
+					<!--Train Positive-->
+				<!--</button>-->
+
+				<!--<button class="btn btn-default btn-sm"-->
+				        <!--ng-click="train(-1)">-->
+					<!--Train Negative-->
+				<!--</button>-->
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.10/lodash.min.js"></script>
+<script type='text/javascript' src="js/script.js"></script>
+</body>
+</html>
