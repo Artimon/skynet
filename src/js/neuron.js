@@ -32,28 +32,6 @@ var Neuron = (function (_) {
 		this.inputs.push(axon);
 	};
 
-	/**
-	 * You may pass any kind of object but you should keep the pattern
-	 * identical once you fed one pattern in.
-	 *
-	 * Note:
-	 * 1. Automatically adds new input parameters to its pattern.
-	 * 2. Do not pass a value named "bias", since it will be overwritten.
-	 * 3. Pattern values can be of any range.
-	 *
-	 * Changes:
-	 * 1. Bias is put back into the input to be enforced and weighted.
-	 * 2. The sigmoid result directly is the output. You could also use a
-	 *    sign(...) function to only differ between "black and white" but
-	 *    I'd like to have a natural perception.
-	 * 3. The output ranges from -1 to +1 instead of "true VS false".
-	 *
-	 * Example:
-	 * perceptron.feedForward({ inputOne: 100, inputTwo: -5.35, inputThree: 0.01 })
-	 *
-	 * @param {{}} input
-	 * @returns {number}
-	 */
 	Neuron.prototype.feedForward = function () {
 		var self = this,
 			sum = 1; // 1 for the static bias.
@@ -75,7 +53,7 @@ var Neuron = (function (_) {
 		 * ~0 at -4
 		 */
 		this.impulse = 1 / (1 + Math.exp(-sum)); // 0 to 1
-		this.impulse = 2 * this.impulse - 1; // -1 to +1
+		// this.impulse = 2 * this.impulse - 1; // -1 to +1
 
 		_.each(this.outputs, function (output) {
 			output.impulse = self.impulse;
@@ -95,12 +73,12 @@ var Neuron = (function (_) {
 	 *
 	 * Example:
 	 * perceptron.feedForward(...);
-	 * perceptron.answer() -> returns -1 or +1
+	 * perceptron.answer() -> returns 0 or 1
 	 *
 	 * @returns {number}
 	 */
 	Neuron.prototype.answer = function () {
-		return this.impulse > 0 ? 1 : -1;
+		return this.impulse > 0.5 ? 1 : 0;
 	};
 
 	/**
